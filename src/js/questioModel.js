@@ -85,14 +85,18 @@ class Tree_Node{
                 case "Las Transacciones deben mantener las propiedades ACID?":
                     if(this._prev_node._answer==="Si"){
                         if(this._answer==="Si"){
+                            this._final_options=[answers[1], answers[0]];
                             final_answer=`${answers[1]}, ${answers[0]}`;
                         }else{
+                            this._final_options=[answers[0]];
                             final_answer=`${answers[0]}`;
                         }
                     }else{
                         if(this._answer==="Si"){
+                            this._final_options=[answers[2]];
                             final_answer=`${answers[2]}`;
                         }else{
+                            this._final_options=[answers[0], answers[2]];
                             final_answer=`${answers[0]}, ${answers[2]}`;
                         }
                     }
@@ -100,23 +104,45 @@ class Tree_Node{
                 case "Que tipo de consulta se realizara mas?":
                     if(this._prev_node._answer==="Usaré todos los campos"){
                         if(this._answer==="Si"){
+                            this._final_options=[answers[1], answers[4]];
                             final_answer=`${answers[1]}, ${answers[4]}`;
                         }else{
+                            this._final_options=[answers[2], answers[5]];
                             final_answer=`${answers[2]}, ${answers[5]}`;
                         }
                     }else{
                         if(this._answer==="Si"){
+                            this._final_options=[answers[4], answers[2]];
                             final_answer=`${answers[4]}, ${answers[2]}`;
                         }else{
+                            this._final_options=[answers[3], answers[2]];
                             final_answer=`${answers[3]}, ${answers[2]}`;
                         }
                     }
                     break;
 
             }
+
+            $(`#options${this._index}`).after(this.WritePrices());
             $(`.titulo_pregunta${this._index+1}`).html(final_answer);
             return true;
         }
         return false;
+    }
+    WritePrices(){
+        let tables = `<div class="row mx-auto">`;
+        for(let i=0;i<this._final_options.length;i++){
+            tables+=`<div class="mx-auto text-center d-inline-block"><table class="table">`;
+            let t_header=`<th colspan="2">${this._final_options[i]}</th>`;
+            let t_body=``;
+            let option=prices[this._final_options[i]];
+            for(let j=0;j<Object.keys(option).length;j++){
+                let opt_key=Object.keys(option)[j];
+                t_body+=`<tr><td>${opt_key}</td><td>${option[opt_key]}</td></tr>`
+            }
+            tables+=t_header+t_body+`</table></div>`;
+        }
+        tables+=`</div>`;
+        return tables;
     }
 }

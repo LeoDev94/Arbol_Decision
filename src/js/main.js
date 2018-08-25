@@ -86,9 +86,9 @@ $(document).ready(function(){
 function createCard(index){
 
     let card = ` <div id="item${index}" class="carousel-item w-100" >
-                    <div class="mx-auto w-50 my-5">
-                        <h5 class="titulo_pregunta${index+1} card-title mb-4">Pregunta texto</h5>
-                        <div id="options${index}">
+                    <div class="mx-auto w-75 my-5">
+                        <h5 class="titulo_pregunta${index+1} text-center card-title mb-4">Pregunta texto</h5>
+                        <div id="options${index}" class="mx-auto text-center">
                             <button id="${index*2+1}" type="button" class="opciones opcion${index*2+1} btn-danger opcion-select">OPC1</button>
                             <button id="${index*2+2}" type="button" class="opciones opcion${index*2+2} btn-danger opcion-select">OPC2</button>
                         </div>
