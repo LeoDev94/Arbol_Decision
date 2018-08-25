@@ -15,11 +15,11 @@ $(document).ready(function(){
             index--;
         }
 
-        /*if(index===path.length-1){
+        if((index===path.length-1)&&finished){
             $('#numPregunta').html("Recomendación");
         }else{
-            $('#numPregunta').html(`Pregunta ${index+1}`);
-        }*/
+            $('#numPregunta').html(`Pregunta ${index*1+1}`);
+        }
         console.log(index);
     });
 
@@ -28,34 +28,34 @@ $(document).ready(function(){
             index++;
         }
 
-        /*if(index===path.length-1){
+        if((index===path.length-1)&&finished){
             $('#numPregunta').html("Recomendación");
         }else{
-            $('#numPregunta').html(`Pregunta ${index+1}`);
-        }*/
+            $('#numPregunta').html(`Pregunta ${index*1+1}`);
+        }
         console.log(index);
     });
 
     $('body').on('click','li.indicador',function (e) {
         index = (e.target.getAttribute("data-slide-to"));
 
-        /*if(index===path.length-1){
+        if((index==path.length-1)&&finished){
             $('#numPregunta').html("Recomendación");
         }else{
-            $('#numPregunta').html(`Pregunta ${index+1}`);
-        }*/
+            $('#numPregunta').html(`Pregunta ${index*1+1}`);
+        }
         console.log(index);
     });
     
     $('body').on('click','button.opciones',function (e) {
-        //if(finished){
+        finished=false;
             for(let i=index*1+1.0;i<path.length;i++){
                 $('div').remove(`#item${i}`);
                 $('li').remove(`#ind${i}`);
             }
             path.splice(index*1+1);
             console.log(path);
-        //}
+
         index++;
         console.log(index);
 
