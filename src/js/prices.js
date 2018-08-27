@@ -14,9 +14,6 @@ const prices = {
         "CouchDB":148.24,
         "CouchBase":532.00,
     },
-    "NoSQL Column":{
-
-    },
     "NoSQL Column In Memory":{
         "HBase":"Personalizado",
         "Cassandra":"Personalizado",

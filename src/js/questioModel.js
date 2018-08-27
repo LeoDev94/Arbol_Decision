@@ -115,8 +115,8 @@ class Tree_Node{
                             this._final_options=[answers[4], answers[2]];
                             final_answer=`${answers[4]}, ${answers[2]}`;
                         }else{
-                            this._final_options=[answers[3], answers[2]];
-                            final_answer=`${answers[3]}, ${answers[2]}`;
+                            this._final_options=[answers[5], answers[2]];
+                            final_answer=`${answers[5]}, ${answers[2]}`;
                         }
                     }
                     break;
